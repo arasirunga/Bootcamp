@@ -6,19 +6,51 @@
     <title>Document</title>
 </head>
 <style>
-p{
-color: white;
-background-color: black;
-font-style: italic;
+
+     body {
+      background-color: lightblue; /* Change this to any color you like */
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    } 
+    
+ .centered-box {
+       background-color: rgb(144, 218, 144);
+      text-align: left;
+      padding: 50px;
+      font-size: 24px;
+      font-family: Arial, sans-serif;
+      width: 60%;
+      margin: 100px 0 0 50px; /* top, right, bottom, left */
+      border-radius: 10px;
+ }
+
+div p {
+  background-color: black;
+}
+
+h1, h2, p {
+  color: red;
 }
 
 
+
+    @media only screen and (min-width:600px) {
+
+        body {
+            background-color: red;
+        }
+
+        
+    }
 </style>
 <body>
+  
+<div><p><h1>Hello Everyone,</h1></p></div>
+  <div class="centered-box">
+    Congratulation on your first day of coding at DevelopersInstitute!!!
+  </div>
     
-<p>Hello Everyone,
-    </p>
-     Congratulation on your first day of coding at DevelopersInstitute
 
     </body>
 
