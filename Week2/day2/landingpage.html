@@ -6,29 +6,86 @@
     <title>Document</title>
    
     <style>
+        
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
       body {
       background-image: url('map.jpg');
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      
 
     }
-    .testimonials{
-display: flex;
-
+     .testimonials {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
     }
+    
     .title {
         text-align: center;
        color: #070142;
     }
 
    .stats {
-    text-align: center;
+   gap: 20px;
     display: flex;
     justify-content: space-between;
 
+
    }
+    .stat
+    {
+        background: rgb(212, 164, 3);
+      border-radius: 12px;
+      padding: 20px;
+      flex: 1;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1)
+
+    }
+    
+     .testimonial {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      flex: 1;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .stat h2 {
+      color: #00704a;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+     .stat p {
+      font-size: 16px;
+      color: #555;
+    }
+    
+    .testimonial img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .testimonial h4 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+
+    .testimonial p {
+      font-size: 14px;
+      color: #444;
+    }
 </style>
 
 </head>
@@ -36,7 +93,7 @@ display: flex;
 
 
 <body>
-   
+   <div class="container">
     <div class="title"><h1>Shopify powers entrepreneurs</h1></div>
 
 <div class="stats">
@@ -57,6 +114,12 @@ display: flex;
 
 
 </div>
+
+
+
+</div>
+<br>
+<br><br><br>
 
    <!-- Testimonials Section -->
     <div class="testimonials">
@@ -80,8 +143,6 @@ display: flex;
       </div>
     </div>
   </div>
-
-
 
 </body>
 </html>
