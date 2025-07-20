@@ -13,7 +13,13 @@
             gap: 10px; /* Space between grid items */
             padding: 20px; /* Padding around the grid */
         }
-
+    grid template-areas: 
+            "x x x "
+            "y header header header header"
+            "y footer footer"
+            "z z w"
+            "y y y y";
+        }
         .gridcontainer > div {
             background-color: aliceblue; /* Background color for grid items */
             border: 1px solid #ccc; /* Border for grid items */
@@ -27,7 +33,7 @@
 
 
 <div class="gridcontainer">
-     <div>1</div>
+     <div >1</div>
         <div>2</div>
         <div>3</div>
         <div>4</div>
