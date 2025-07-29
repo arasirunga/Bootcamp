@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parclick Clone</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="styles.css" rel="stylesheet" />
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+      <div class="text-2xl font-bold text-blue-600">Parclick</div>
+      <nav class="space-x-4 hidden md:flex">
+        <a href="#" class="text-gray-700 hover:text-blue-600">Parking</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">How it works</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">Help</a>
+        <a href="#" class="text-blue-600 border border-blue-600 px-3 py-1 rounded">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-[url('https://parclick.com/static/home-hero.jpg')] bg-cover bg-center h-[600px] relative">
+    <div class="bg-black/50 absolute inset-0"></div>
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Book your parking in advance</h1>
+      <p class="text-lg mb-6">Save up to 70% on parking near your destination</p>
+
+      <!-- Search Form -->
+      <div class="bg-white rounded-lg shadow-lg p-4 w-full max-w-3xl text-gray-800">
+        <form class="flex flex-col md:flex-row gap-4 items-center">
+          <input type="text" placeholder="Where do you want to park?" class="w-full px-4 py-2 border rounded"/>
+          <input type="date" class="px-4 py-2 border rounded"/>
+          <input type="date" class="px-4 py-2 border rounded"/>
+          <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Search</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Destinations -->
+   <!-- Parking Slots Section -->
+<section class="py-16 px-6 max-w-7xl mx-auto">
+  <h2 class="text-2xl font-semibold mb-8 text-center">Parking Slot Availability</h2>
+  <div class="grid grid-cols-4 md:grid-cols-8 gap-4 justify-items-center">
+
+    <!-- Parking Slot - Available -->
+    <div class="w-16 h-16 rounded-lg bg-green-500 flex items-center justify-center text-white font-bold">
+      A1
+    </div>
+
+    <!-- Parking Slot - Not Available -->
+    <div class="w-16 h-16 rounded-lg bg-red-500 flex items-center justify-center text-white font-bold">
+      A2
+    </div>
+
+    <!-- Parking Slot - Available -->
+    <div class="w-16 h-16 rounded-lg bg-green-500 flex items-center justify-center text-white font-bold">
+      A3
+    </div>
+
+    <!-- Parking Slot - Not Available -->
+    <div class="w-16 h-16 rounded-lg bg-red-500 flex items-center justify-center text-white font-bold">
+      A4
+    </div>
+
+    <!-- More Slots -->
+    <div class="w-16 h-16 rounded-lg bg-green-500 flex items-center justify-center text-white font-bold">
+      B1
+    </div>
+    <div class="w-16 h-16 rounded-lg bg-red-500 flex items-center justify-center text-white font-bold">
+      B2
+    </div>
+    <div class="w-16 h-16 rounded-lg bg-green-500 flex items-center justify-center text-white font-bold">
+      B3
+    </div>
+    <div class="w-16 h-16 rounded-lg bg-green-500 flex items-center justify-center text-white font-bold">
+      B4
+    </div>
+
+  </div>
+
+  <!-- Legend -->
+  <div class="mt-6 flex items-center justify-center gap-6 text-sm text-gray-600">
+    <div class="flex items-center gap-2">
+      <div class="w-4 h-4 bg-green-500 rounded"></div> Available
+    </div>
+    <div class="flex items-center gap-2">
+      <div class="w-4 h-4 bg-red-500 rounded"></div> Not Available
+    </div>
+  </div>
+</section>
+
+  <section class="py-16 px-6 max-w-7xl mx-auto">
+    <h2 class="text-2xl font-semibold mb-8 text-center">Popular destinations</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="rounded overflow-hidden shadow-lg">
+        <img src="https://parclick.com/static/city-barcelona.jpg" class="w-full h-40 object-cover" />
+        <div class="p-4">
+          <h3 class="text-lg font-medium">Barcelona</h3>
+        </div>
+      </div>
+      <div class="rounded overflow-hidden shadow-lg">
+        <img src="https://parclick.com/static/city-paris.jpg" class="w-full h-40 object-cover" />
+        <div class="p-4">
+          <h3 class="text-lg font-medium">Paris</h3>
+        </div>
+      </div>
+      <div class="rounded overflow-hidden shadow-lg">
+        <img src="https://parclick.com/static/city-madrid.jpg" class="w-full h-40 object-cover" />
+        <div class="p-4">
+          <h3 class="text-lg font-medium">Madrid</h3>
+        </div>
+      </div>
+      <div class="rounded overflow-hidden shadow-lg">
+        <img src="https://parclick.com/static/city-rome.jpg" class="w-full h-40 object-cover" />
+        <div class="p-4">
+          <h3 class="text-lg font-medium">Rome</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-8">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-500">
+      &copy; 2025 Parclick Clone. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
+
