@@ -1,0 +1,76 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0; padding: 0;
+  color: #333;
+}
+
+.site-header {
+  background-color: #ff3b3f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero {
+  background-color: #f2f2f2;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.search-form {
+  display: inline-block;
+  text-align: left;
+}
+
+.search-form select,
+.search-form input,
+.search-form button {
+  display: block;
+  margin: 10px 0;
+  padding: 8px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.search-form button {
+  background-color: #ff3b3f;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.features, .stats {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.features div, .stats div {
+  margin: 10px 0;
+}
+
+.testimonials {
+  background-color: #fafafa;
+  padding: 20px;
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+.testimonials blockquote {
+  font-style: italic;
+  margin: 10px 0;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  background-color: #f2f2f2;
+}
