@@ -7,10 +7,21 @@
 </head>
 <script src=EXERCISEXP> </script>
 <script>
+    //EXERCISE 1 
+let x=15;
+let y=7;
+
+
+if(x>y ){
+console.log("x is the biggest number")
+}
+else{
+console.log("y is the biggest number")    
+}
     //EXRECISE 2 
 let newDog="Chihuahua"
  
-console.log(newDog.length);
+console.log("number of letters in newDog: ", newDog.length);
 console.log(newDog.toUpperCase);
 console.log(newDog.toLowerCase);
 if (newDog=="Chihuahua"){
@@ -22,17 +33,38 @@ console.log("I dont care, I prefer cats")
 }
 
 //Exercise3 
-prompt("please enter a number");
+x=prompt("please enter a number");
 
-let x=prompt;
 rem=(x%2);
 
-if (rem=0){
-console.log("even number")
+if (rem==0){
+console.log("x is an even number")
 }
 else {
-console.log("odd number")
+console.log("x is an odd number")
 
+}
+
+//Exercise4
+const users=["Lea123","Princess45", "cat&doglovers", "helooo@000"]
+
+if (users.length==0){
+
+    console.log("Nobody online")
+}
+else if (users.length==1){
+
+    console.log(users[0] &"is online")
+}
+else if (users.length==2){
+
+    console.log(users[0] &","& users[1]&"is online")
+}
+
+
+else if (users.length>2){
+
+    console.log(users[0] &","& users[1]& (users.length-2) &"is online")
 }
 
 </script>
