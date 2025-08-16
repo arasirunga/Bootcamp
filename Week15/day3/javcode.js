@@ -16,7 +16,7 @@ alert ("No problem, Goodbye.");
 else{
    y= prompt("enter a number  between 0 and 10")
    
-if (isNan(y)){
+if (isNaN(y)){
     //pther data type
 alert( "Sorry Not a number, Goodbye")
 playthegame()
@@ -31,7 +31,7 @@ playthegame()
 }
 
 else{
- y=round(math.random())
+ y=Math.round(Math.random())
 
 }
 }
@@ -40,6 +40,7 @@ else{
 
 
 function compareNumbers(userNumber,computerNumber){
+    let count;
     if (count >3){
 alert ("out of chances")
 return;
