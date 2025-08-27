@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+let sentence,wordnot,wordbad
+sentence= "dinner is not that bad ! You cook well"
+console.log(sentence);
+wordnot=sentence.indexOf("not");
+wordbad=sentence.indexOf("bad");
+
+if (wordbad>wordnot && wordnot!==-1 && wordbad!==-1){
+    console.log(sentence.slice(0,wordnot)+"good"+sentence.slice(wordbad+3));
+
+
+}   
+else{
+    console.log(sentence);
+}
+
+
+
+
+</script>
