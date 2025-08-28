@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+const people = ["Greg", "Mary", "Devon", "James"];
+//remove greg
+people.splice(0, 1);
+console.log(people);
+//change james to jason
+people[2]="jason"
+people.push("Arasi");
+
+console.log(people.indexOf("Mary"))
+people.splice(0, 1) 
+//remove arasi
+console.log(people.indexOf("Arasi"))
+people.splice(3,1)
+
+
+console.log(people.indexOf("Foo")) //does not exist
+last=people[people.length-1]
+console.log(last)
+
+//loop
+
+for (i=0;i<people.length;i++){
+    console.log(people[i])
+}
+//break after index of devon
+
+for (i=0;i<people.length;i++){
+    console.log(people[i])
+    if (people[i] === "Devon") {
+        break;
+    }
+
+}
+//ex2
+
+const colors = ["red", "green", "blue", "yellow", "lightblue"];
+const suffixes = ["st", "nd", "rd", "th", "th"];
+for (i=0;i<colors.length;i++){
+    console.log("My"&& "#"&&(i+1)&&"choice is "&&colors[i])
+}
+
+//ex3
+
+
+typeof prompt("enter a number")
+do {
+   a= prompt("enter a number")
+} while (typeof a <10) {
+    console.log("Please enter a valid number.");
+ 
+}
+
+//building management
+const building = {
+    numberOfFloors: 4,
+    numberOfAptByFloor: {
+        firstFloor: 3,
+        secondFloor: 4,
+        thirdFloor: 9,
+        fourthFloor: 2,
+    },
+    nameOfTenants: ["Sarah", "Dan", "David"],
+    numberOfRoomsAndRent:  {
+        sarah: [3, 990],
+        dan:  [4, 1000],
+        david: [1, 500],
+    },
+}
+
+console.log(building.numberOfFloors);
+console.log(building.numberOfAptByFloor.firstFloor);
+console.log(building.nameOfTenants[1]);
+console.log(building.numberOfRoomsAndRent.dan[0]);
+if(
+sum(building.numberOfRoomsAndRent.sarah[1], building.numberOfRoomsAndRent.david[1])>building.numberOfRoomsAndRent.dan[1]
+){
+   building.numberOfRoomsAndRent.dan[1]= 1200
+}
+
+</script>
+</html>
