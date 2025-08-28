@@ -22,7 +22,6 @@
     /* Common box style */
     .box {
       height: 100px;
-      background: #676470;
       color: white;
       display: flex;
       justify-content: center;
@@ -35,14 +34,22 @@
       z-index: 1;
     }
 
-    /* Effects */
+    /* Unique background colors */
+    .red    { background: #e74c3c; }  /* red */
+    .blue   { background: #3498db; }  /* blue */
+    .green  { background: #27ae60; }  /* green */
+    .purple { background: #9b59b6; }  /* purple */
+    .orange { background: #e67e22; }  /* orange */
+    .teal   { background: #1abc9c; }  /* teal */
+    .gray   { background: #7f8c8d; }  /* gray */
+    .yellow { background: #f1c40f; color: black; } /* yellow with black text */
+    .pink   { background: #e84393; }  /* pink */
+
+    /* Hover effects */
     .fade { opacity: 0.5; }
-    .box.fade{
-        color: aqua;
-    }
     .fade:hover { opacity: 1; }
 
-    .color:hover { background: #53a7ea; }
+    .color:hover { filter: brightness(1.3); }
 
     .grow:hover { transform: scale(1.3); }
 
@@ -53,7 +60,7 @@
     .circle:hover { border-radius: 50%; }
 
     .threed:hover {
-      box-shadow: 1px 1px #53a7ea, 2px 2px #53a7ea, 3px 3px #53a7ea;
+      box-shadow: 1px 1px #00000044, 2px 2px #00000044, 3px 3px #00000044;
       transform: translateX(-3px);
     }
 
@@ -71,9 +78,9 @@
       100% { transform: translateX(0); }
     }
 
-    .border:hover { box-shadow: inset 0 0 0 25px #53a7ea; }
+    .border:hover { box-shadow: inset 0 0 0 25px rgba(255,255,255,0.5); }
 
-    /* Last box spans full width in grid */
+    /* Last box spans full width */
     .full {
       grid-column: span 4;
       height: 120px;
@@ -83,8 +90,8 @@
       z-index: 2;
     }
 
-    /* When hovered → expand to fullscreen */
-    .full:hover {
+    /* Expanded fullscreen mode */
+    .full.expanded {
       position: fixed;
       top: 0;
       left: 0;
@@ -92,23 +99,34 @@
       height: 100vh;
       font-size: 2rem;
       border-radius: 0;
-      background: #53a7ea;
+      background: #2c3e50; /* darker for fullscreen */
       z-index: 999;
-      transform: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   </style>
 </head>
 <body>
   <div id="parent">
-    <div class="box fade">fade</div>
-    <div class="box color">color</div>
-    <div class="box grow">grow</div>
-    <div class="box shrink">shrink</div>
-    <div class="box rotate">rotate</div>
-    <div class="box circle">circle</div>
-    <div class="box threed">3D</div>
-    <div class="box swing">swing</div>
-    <div class="box border full">last box full screen on hover</div>
+    <div class="box fade red">fade</div>
+    <div class="box color blue">color</div>
+    <div class="box shrink purple">shrink</div>
+    <div class="box rotate orange">rotate</div>
+    <div class="box circle teal">circle</div>
+    <div class="box threed gray">3D</div>
+    <div class="box swing yellow">swing</div>
+    <div class="box border pink " >border </div>
+    
+    <div class="box grow green full" id="lastBox">grow</div>
   </div>
+
+  <script>
+    const lastBox = document.getElementById("lastBox");
+
+    lastBox.addEventListener("click", () => {
+      lastBox.classList.toggle("expanded");
+    });
+  </script>
 </body>
 </html>
