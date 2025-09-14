@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+    <script>
+        function hello(){
+            alert("Hello everyone")
+        }
+        window.onload=function(){
+
+            document.getElementById("saturday").onclick=hello
+        }
+window.onload=function(){
+
+    let mynewrow=document.createElement("tr")
+// document.getElementById("table").append(mynewrow)
+newtd2=document.createElement("td") 
+mynewrow.append(newtd2)
+
+mynewrow.textContent="col 1, row3"
+}
+
+
+
+
+
+
+    </script>
+
+
+
+</head>
+
+
+
+
+<body>
+    <h2 id="saturday">This is a sat class</h2>
+    <table id="table">
+
+    </table>
+</body>
+</html>
