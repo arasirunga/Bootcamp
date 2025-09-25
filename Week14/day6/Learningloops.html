@@ -89,5 +89,54 @@ sum(building.numberOfRoomsAndRent.sarah[1], building.numberOfRoomsAndRent.david[
    building.numberOfRoomsAndRent.dan[1]= 1200
 }
 
+
+//ex 5 family
+membersname={
+    dad:"Rungassamy",
+    mom:"Lakshmi",
+    daughter:"Arasi",
+    son:"Rishi"
+}
+
+
+for (let key in membersname){
+    console.log(key)
+  
+}
+console.log("Values:");
+for (let key in membersname) {
+  console.log(membersname[key]);
+}
+
+
+//ex 6
+const details = {
+  my: 'name',
+  is: 'Rudolf',
+  the: 'reindeer'
+}
+  
+
+for(key in details){
+(key +" "+ details[key]+" ")
+}
+
+//ex 7 
+//secret group
+
+const names = ["Jack", "Philip", "Sarah", "Amanda", "Bernard", "Kyle"];
+let secret=""
+
+for (i=0;i<names.length;i++){
+
+secret=names[i].charAt(0) +secret
+
+}
+
+//sort secret alphabetically
+console.log(secret.split('').sort().join(''))
+
+
+
 </script>
 </html>
