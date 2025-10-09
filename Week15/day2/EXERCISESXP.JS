@@ -91,4 +91,45 @@ return total;
 //Exercise 5
 
 
+function changeEnough(itemPrice, amountOfChange) {
+let amount
+    amount=(amountOfChange[0]*0.25) +(amountOfChange[1]*0.10+amountOfChange[2]*0.05+amountOfChange[3]*0.01)
 
+    if (itemPrice<=amount){
+        console.log("true")
+    }
+    else{
+
+        console.log("false")
+    }
+}
+
+//Exercise 6
+
+function hotelCost(){
+numberofnights=prompt ("How many nights would you like to stay?")
+
+    
+
+
+function rentalcarcost(){
+
+    numberofdays=prompt("How many days would you like to rent the car?")
+//answer not number or answer==""){
+    if (isNaN(numberofdays) || numberofdays=="" ){
+        numberofdays=prompt("Please enter a number")
+    }
+        cost=numberofdays*40
+ if (numberofdays>10){
+    cost=cost*0.95
+
+}
+
+return cost;
+}
+
+function totalVacationCost(){
+  //add cost from all 3 functions
+  total=hotelCost()+planeRideCost()+rentalcarcost()
+  console.log("The total vacation cost is " + total + ".");
+} 
