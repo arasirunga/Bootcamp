@@ -15,8 +15,16 @@ let mypromise=fetch ("https://api.artic.edu/api/v1/artworks")
 mypromise.then(function(data){
 console.log(data)
 return data.json()
-})
 
+
+}).then(function(data){
+
+
+
+
+
+
+}
 mypromise.catch(function(data){
 console.log(data)
 alert ("not working")
