@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Place Order</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #111827;
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .navbar h2 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    /* Order Form Container */
+    .order-container {
+      background: white;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .order-container h2 {
+      margin-top: 0;
+      text-align: center;
+      color: #111;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 6px;
+      color: #444;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
+
+    input:focus, select:focus {
+      border-color: #2563eb;
+      outline: none;
+    }
+
+    /* Submit Button */
+    .submit-btn {
+      background: #059669;
+      color: white;
+      padding: 14px 20px;
+      border: none;
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: #047857;
+    }
+
+    /* Back button */
+    .back-btn {
+      margin-top: 15px;
+      background: #2563eb;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .back-btn:hover {
+      background: #1e4ec6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="navbar">
+    <h2>ORDER COMMODITY</h2>
+    <button onclick="goHome()" style="background:#dc2626; color:white; padding:8px 16px; border:none; border-radius:8px; cursor:pointer;">
+      Home
+    </button>
+  </div>
+
+  <div class="order-container">
+    <h2>Order Details</h2>
+
+    <div class="form-group">
+      <label>Commodity</label>
+      <input type="text" id="commodityName" readonly>
+    </div>
+
+    <div class="form-group">
+      <label>Tonnage Required (MT)</label>
+      <input type="number" id="tonnage" placeholder="Enter tonnage" min="1">
+    </div>
+
+    <div class="form-group">
+      <label>Mining Site (Origin)</label>
+      <select id="origin">
+        <option value="">Select origin</option>
+        <option value="Kolwezi Mine">Kolwezi Mine</option>
+        <option value="Kakula Mine">Kakula Mine</option>
+        <option value="Kamoa Mine">Kamoa Mine</option>
+        <option value="Lubumbashi">Lubumbashi Warehouse</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Destination Port</label>
+      <select id="destination">
+        <option value="">Select destination</option>
+        <option value="Durban Port">Durban Port</option>
+        <option value="Beira Port">Beira Port</option>
+        <option value="Dar es Salaam">Dar es Salaam</option>
+        <option value="Walvis Bay">Walvis Bay</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Incoterm</label>
+      <select id="incoterm">
+        <option value="">Choose Incoterm</option>
+        <option value="EXW">EXW</option>
+        <option value="FOB">FOB</option>
+        <option value="CFR">CFR</option>
+        <option value="CIF">CIF</option>
+      </select>
+    </div>
+
+    <button class="submit-btn" onclick="submitOrder()">Calculate Logistics Price</button>
+    <button class="back-btn" onclick="goHome()">Back to Home</button>
+
+  </div>
+
+  <script>
+    // Load commodity name when arriving from home.html
+    const urlParams = new URLSearchParams(window.location.search);
+    const commodity = urlParams.get("product");
+
+    if (commodity) {
+      document.getElementById("commodityName").value = commodity;
+    }
+
+    function goHome() {
+      window.location.href = "home.html";
+    }
+
+    function submitOrder() {
+      const tonnage = document.getElementById("tonnage").value;
+      const origin = document.getElementById("origin").value;
+      const destination = document.getElementById("destination").value;
+      const incoterm = document.getElementById("incoterm").value;
+
+      if (!tonnage || !origin || !destination || !incoterm) {
+        alert("Please fill in all fields before continuing.");
+        return;
+      }
+
+      // Later this will call backend API for price calculation
+      alert("Order submitted! Logistic price calculation coming soon...");
+    }
+  </script>
+
+</body>
+</html>
