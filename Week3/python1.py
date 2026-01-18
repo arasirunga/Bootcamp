@@ -35,3 +35,4 @@ print (mylist)
 
 
 
+jokes=["why did the chicken cross the road? to get to the other side!","what do you call a bear with no teeth? a gummy bear!","why don't scientists trust atoms? because they make up everything!"]

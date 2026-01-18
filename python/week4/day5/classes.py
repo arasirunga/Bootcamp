@@ -20,3 +20,7 @@ class car:
 mycar=car("toyota","red",2020)
 print (f"my car is a {mycar.color} {mycar.brand} from {mycar.year}")
 
+ 
+
+ class Person :
+   

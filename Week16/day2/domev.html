@@ -28,40 +28,39 @@
 
 
 <script>
-// -------- 1. Retrieve the h1 and console.log it --------
-const h1 = document.querySelector("h1");
-console.log(h1);
 
-// -------- 2. Remove the last paragraph inside the article --------
-const article = document.getElementById("myArticle");
-article.removeChild(article.lastElementChild);
+        const h1 = document.querySelector("h1");
+        console.log(h1);
 
-// -------- 3. Change h2 background to red on click --------
+        const article = document.getElementById("myArticle");
+        article.removeChild(article.lastElementChild);
+
+
 const h2 = document.getElementById("chocoTitle");
 h2.addEventListener("click", () => {
     h2.style.backgroundColor = "red";
 });
 
-// -------- 4. Hide h3 on click (display:none) --------
+
 const h3 = document.getElementById("subTitle");
 h3.addEventListener("click", () => {
     h3.style.display = "none";
 });
 
-// -------- 5. Button: make all paragraphs bold --------
 const btn = document.getElementById("boldBtn");
 btn.addEventListener("click", () => {
     const allP = document.querySelectorAll("p");
     allP.forEach(p => p.style.fontWeight = "bold");
 });
 
-// -------- BONUS A: random font size on hover (0–100 px) --------
+
 h1.addEventListener("mouseover", () => {
     const size = Math.floor(Math.random() * 100);
     h1.style.fontSize = size + "px";
 });
 
-// -------- BONUS B: fade out second paragraph on hover --------
+
+
 const secondP = document.getElementById("secondP");
 secondP.addEventListener("mouseover", () => {
     secondP.classList.add("fade-out");
