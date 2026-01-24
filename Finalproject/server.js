@@ -23,6 +23,9 @@ const pool = new Pool({
 ========================= */
 
 
+app.get("/ping", (req, res) => {
+  res.send("pong");
+});
 
 
 
@@ -74,6 +77,48 @@ app.get('/api/rates', async (req, res) => {
   } catch (err) {
     console.error('Rates query error:', err);
     res.status(500).json({ error: 'Failed to fetch rates' });
+  }
+});
+
+
+
+app.post("/api/orders", async (req, res) => {
+  const {
+    user_id,
+    commodity,
+    tonnage,
+    origin,
+    destination,
+    incoterm,
+    total_price
+  } = req.body;
+
+  try {
+    const result = await pool.query(
+      `
+      INSERT INTO orders
+      (user_id, commodity, tonnage, origin, destination, incoterm, total_price)
+      VALUES ($1, $2, $3, $4, $5, $6, $7)
+      RETURNING *
+      `,
+      [
+        user_id,
+        commodity,
+        tonnage,
+        origin,
+        destination,
+        incoterm,
+        total_price
+      ]
+    );
+
+    res.json({
+      success: true,
+      order: result.rows[0]
+    });
+  } catch (err) {
+    console.error("Order insert error:", err);
+    res.status(500).json({ success: false });
   }
 });
 
