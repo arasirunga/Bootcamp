@@ -6,6 +6,9 @@ const { Pool } = require('pg');
 const app = express();
 app.use(cors());
 app.use(express.static("public"));
+const path = require("path");
+
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(bodyParser.json());
 
@@ -29,31 +32,52 @@ app.get("/ping", (req, res) => {
 
 
 
-
-app.post('/login', async (req, res) => {
-  const { email, password } = req.body;
+app.post("/login", async (req, res) => {
+  const { email, password} = req.body;
 
   try {
     const result = await pool.query(
       `
-      SELECT *
+      SELECT id, name, email, role, password_hash
       FROM users
-      WHERE LOWER(TRIM(email)) = LOWER($1)
-        AND TRIM(password) = $2
+      WHERE LOWER(email) = LOWER($1)
       `,
-      [email.trim(), password.trim()]
+      [email.trim()]
     );
 
-    if (result.rows.length > 0) {
-      res.json({ success: true });
-    } else {
-      res.status(401).json({ success: false, message: 'Invalid credentials' });
+    if (result.rows.length === 0) {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid email or password"
+      });
     }
+
+    const user = result.rows[0];
+
+    // TEMP: plain text comparison
+    if (password.trim() !== user.password_hash) {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid email or password"
+      });
+    }
+
+    res.json({
+      success: true,
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        role: user.role
+      }
+    });
+
   } catch (err) {
-    console.error('Login error:', err);
-    res.status(500).json({ success: false, message: 'Server error' });
+    console.error("Login error:", err);
+    res.status(500).json({ success: false });
   }
 });
+
 
 /* =========================
    RATES ENDPOINT
@@ -118,6 +142,41 @@ app.post("/api/orders", async (req, res) => {
     });
   } catch (err) {
     console.error("Order insert error:", err);
+    res.status(500).json({ success: false });
+  }
+});
+
+app.get("/api/orders", async (req, res) => {
+  const { user_id, role } = req.query;
+
+  try {
+    let result;
+
+    if (role === "ADMIN") {
+      // Admin sees all orders + client info
+      result = await pool.query(`
+        SELECT o.*, u.name AS client_name, u.email
+        FROM orders o
+        JOIN users u ON o.user_id = u.id
+        ORDER BY o.created_at DESC
+      `);
+    } else {
+      // Client sees only their own orders
+      result = await pool.query(
+        `
+        SELECT *
+        FROM orders
+        WHERE user_id = $1
+        ORDER BY created_at DESC
+        `,
+        [user_id]
+      );
+    }
+
+    res.json(result.rows);
+
+  } catch (err) {
+    console.error("Fetch orders error:", err);
     res.status(500).json({ success: false });
   }
 });

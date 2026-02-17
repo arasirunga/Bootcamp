@@ -240,58 +240,54 @@
     }
 
     function goHome() {
-      window.location.href = "home.html";
+      window.location.href = "FinalProject.html";
     }
 
-    async function submitOrder() {
-      const tonnage = Number(document.getElementById("tonnage").value);
-      const origin = document.getElementById("origin").value;
-      const destination = document.getElementById("destination").value;
-      const incoterm = document.getElementById("incoterm").value;
+  async function submitOrder() {
+  const tonnage = Number(document.getElementById("tonnage").value);
+  const origin = document.getElementById("origin").value;
+  const destination = document.getElementById("destination").value;
+  const incoterm = document.getElementById("incoterm").value;
 
-      if (!tonnage || !origin || !destination || !incoterm) {
-        alert("Please fill in all fields.");
-        return;
-      }
+  if (!tonnage || !origin || !destination || !incoterm) {
+    alert("Please fill in all fields.");
+    return;
+  }
 
-      const response = await fetch(
-        `/api/rates?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&incoterm=${incoterm}`
-      );
+  const response = await fetch(
+    `/api/rates?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&incoterm=${incoterm}`
+  );
 
-      const rates = await response.json();
+  const rates = await response.json();
 
-      console.log("Rates from API:", rates);
-console.log("Tonnage:", tonnage);
+  if (rates.length === 0) {
+    alert("No rates found.");
+    return;
+  }
 
-      if (rates.length === 0) {
-        alert("No rates found.");
-        return;
-      }
+  const tbody = document.getElementById("rateTableBody");
+  tbody.innerHTML = "";
 
-      const tbody = document.getElementById("rateTableBody");
-      tbody.innerHTML = "";
-      let total = 0;
+  let total = 0;
 
-    rates.forEach(r => {
-  const rate = Number(r.rate_per_mt);
-  const lineTotal = rate * tonnage;
-  total += lineTotal;
+  rates.forEach(r => {
+    const rate = Number(r.rate_per_mt);
+    const lineTotal = rate * tonnage;
+    total += lineTotal;
 
-  tbody.innerHTML += `
-    <tr>
-      <td>${r.cost_item}</td>
-      <td>${rate.toFixed(2)}</td>
-      <td>${lineTotal.toFixed(2)}</td>
-    </tr>
-  `;
-});
+    tbody.innerHTML += `
+      <tr>
+        <td>${r.cost_item}</td>
+        <td>${rate.toFixed(2)}</td>
+        <td>${lineTotal.toFixed(2)}</td>
+      </tr>
+    `;
+  });
 
-
-      document.getElementById("grandTotal").innerText = total.toFixed(2);
-      document.getElementById("rateTable").style.display = "table";
-    }
+  document.getElementById("grandTotal").innerText = total.toFixed(2);
+  document.getElementById("rateTable").style.display = "table";
+}
   </script>
-
 
 
 <script>
@@ -313,14 +309,16 @@ async function placeOrder() {
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({
-      commodity,
-      tonnage,
-      origin,
-      destination,
-      incoterm,
-      total
-    })
+  body: JSON.stringify({
+  user_id: 1,               // TEMP until login/session exists
+  commodity,
+  tonnage,
+  origin,
+  destination,
+  incoterm,
+  total_price: total        // MUST match backend
+})
+
   });
 
   const result = await response.json();

@@ -1,4 +1,24 @@
-print ("hello")
+
+from time import time
+def timer(func): # take a function as parameter
+
+    def wrapper(*args, **kwargs):
+        start = time()
+        print("function to be run is",func)
+        res = func(*args, **kwargs)
+        end = time()
+        print(f"Time <{func.__name__}>: {(end-start)*1000000}")
+        return res
+    return wrapper # returning a function or result of function?
+
+
+
+
+@timer
+def print_hello():
+    print("hello")
+
+print_hello()
 
 itemprice=input("enter the item price: ")
 itemprice=float(itemprice)
